@@ -26,7 +26,9 @@ const makeTableOfSinglePlayer = player => {
 	}
 
 	// create jerseyNum header
-	let thJerseyNum = $('<th></th>').append(document.createTextNode('number'));
+	if (player.jersey !== '') {
+		var thJerseyNum = $('<th></th>').append(document.createTextNode('number'));
+	}
 
 	// create DOB header
  	
@@ -42,7 +44,9 @@ const makeTableOfSinglePlayer = player => {
 	if (player.heightFeet !== '-') {
 		trHead.append(thHeight);
 	}
-	trHead.append(thJerseyNum);
+	if (player.jersey !== '') {
+		trHead.append(thJerseyNum);
+	}
 	if (player.dateOfBirthUTC) {
 		trHead.append(thDOB);
 	}
@@ -60,7 +64,10 @@ const makeTableOfSinglePlayer = player => {
 			document.createTextNode(`${player.heightFeet} feet ${player.heightInches} inches`)
 		);
 	}
-	let tdJerseyNum = $('<td></td>').append(document.createTextNode(player.jersey));
+
+	if (player.jersey !== '') {
+		var tdJerseyNum = $('<td></td>').append(document.createTextNode(player.jersey));
+	}
 
 	if (player.dateOfBirthUTC) {
 		var tdDOB = $('<td></td>').append(document.createTextNode(player.dateOfBirthUTC));
@@ -74,7 +81,10 @@ const makeTableOfSinglePlayer = player => {
 	if (player.heightFeet !== '-') {
 		trBody.append(tdHeight);
 	}
-	trBody.append(tdJerseyNum);
+
+	if (player.jersey !== '') {
+		trBody.append(tdJerseyNum);
+	}
 
 	if (player.dateOfBirthUTC) {
 		trBody.append(tdDOB);
