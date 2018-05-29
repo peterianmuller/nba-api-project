@@ -16,7 +16,9 @@ const makeTableOfSinglePlayer = player => {
 	let trHead = $('<tr></tr>');
 
 	// create position header
-	let thPosition = $('<th></th>').append(document.createTextNode('position'));
+	if (player.pos) {
+		var thPosition = $('<th></th>').append(document.createTextNode('position'));
+	}
 
 	// create height header
 	let thHeight = $('<th></th>').append(document.createTextNode('height'));
@@ -32,7 +34,9 @@ const makeTableOfSinglePlayer = player => {
 	}
 
 	// append trHead and tHead to table
-	trHead.append(thPosition);
+	if (player.pos) {
+		trHead.append(thPosition);
+	}
 	trHead.append(thHeight);
 	trHead.append(thJerseyNum);
 	if (player.dateOfBirthUTC) {
@@ -44,7 +48,9 @@ const makeTableOfSinglePlayer = player => {
 	// create table body
 	let tbody = $('<tbody></tbody>');
 	let trBody = $('<tr></tr>');
-	let tdPosition = $('<td></td>').append(document.createTextNode(player.pos));
+	if (player.pos) {
+		var tdPosition = $('<td></td>').append(document.createTextNode(player.pos));
+	}
 	let tdHeight = $('<td></td>').append(
 		document.createTextNode(`${player.heightFeet} feet ${player.heightInches} inches`)
 	);
@@ -55,8 +61,9 @@ const makeTableOfSinglePlayer = player => {
 	}
 
 	// append td to tr
-
-	trBody.append(tdPosition);
+	if (player.pos) {
+		trBody.append(tdPosition);
+	}
 	trBody.append(tdHeight);
 	trBody.append(tdJerseyNum);
 
