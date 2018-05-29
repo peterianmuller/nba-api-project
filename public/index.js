@@ -1,9 +1,12 @@
-const makeTable = data => {
+
+
+
+const makeTableOfSinglePlayer = player => {
 	let table = $('<table></table>');
 
 	// create caption
 	let caption = $('<caption></caption>');
-	caption.append(document.createTextNode(`${data[0].firstName} ${data[0].lastName}`));
+	caption.append(document.createTextNode(`${player.firstName} ${player.lastName}`));
 	table.append(caption);
 
 	// create head
@@ -21,27 +24,45 @@ const makeTable = data => {
 	// create jerseyNum header
 	let thJerseyNum = $('<th></th>').append(document.createTextNode('number'));
 
+	// create DOB header
+ 	
+ 	// check if DOB exists
+ 	if (player.dateOfBirthUTC) {
+		var thDOB = $('<th></th>').append(document.createTextNode('DOB'))
+	}
+
 	// append trHead and tHead to table
 	trHead.append(thPosition);
 	trHead.append(thHeight);
 	trHead.append(thJerseyNum);
+	if (player.dateOfBirthUTC) {
+		trHead.append(thDOB);
+	}
 	thead.append(trHead);
 	table.append(thead);
 
 	// create table body
 	let tbody = $('<tbody></tbody>');
 	let trBody = $('<tr></tr>');
-	let tdPosition = $('<td></td>').append(document.createTextNode(data[0].pos));
+	let tdPosition = $('<td></td>').append(document.createTextNode(player.pos));
 	let tdHeight = $('<td></td>').append(
-		document.createTextNode(`${data[0].heightFeet} feet ${data[0].heightInches} inches`)
+		document.createTextNode(`${player.heightFeet} feet ${player.heightInches} inches`)
 	);
-	let tdJerseyNum = $('<td></td>').append(document.createTextNode(data[0].jersey));
+	let tdJerseyNum = $('<td></td>').append(document.createTextNode(player.jersey));
+
+	if (player.dateOfBirthUTC) {
+		var tdDOB = $('<td></td>').append(document.createTextNode(player.dateOfBirthUTC));
+	}
 
 	// append td to tr
 
 	trBody.append(tdPosition);
 	trBody.append(tdHeight);
 	trBody.append(tdJerseyNum);
+
+	if (player.dateOfBirthUTC) {
+		trBody.append(tdDOB);
+	}
 
 	// append tr to tbody
 	tbody.append(trBody);
@@ -67,8 +88,10 @@ $('button:first-of-type').click(e => {
 		},
 		contentType: 'application/json',
 		success: data => {
-			console.log(data[0]);
-			makeTable(data);
+			console.log(data);
+			for (let i = 0; i < data.length; i++) {
+				makeTableOfSinglePlayer(data[i]);
+			}
 		}
 	});
 });
