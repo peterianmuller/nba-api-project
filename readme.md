@@ -4,4 +4,6 @@ We'll first set up a basic page that has a single button that will get back data
 
 We'll then have a more advanced feature that will enable to user to request data on a certain player!
 
-Woooooooo Able to grab API data!
+Some entries on the table are lacking data. 
+Currently, not displaying data for entires
+UI affected by not displaying entries. 
