@@ -25,21 +25,22 @@ caption {
 }
 
 .data-container {
-	font-size: 1.2em;
+	margin-top: 0;
+	font-size: 1.1em;
 }
 
 .data-container table {
 	margin: 3em auto;
 }
 
+.data-container table:first-child {
+	margin: 0 auto;
+}
+
 .data-container tbody {
 	background-color: rgba(128, 128, 128, 0.3);
 }
 
-.data-container tr td:hover:nth-of-type(odd) {
-	background-color: lightyellow;
-}
-
-.data-container tr td:hover:nth-of-type(even) {
+.data-container tr td:hover {
 	background-color: lightgreen;
 }
