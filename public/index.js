@@ -117,13 +117,13 @@ const makeTableOfSinglePlayerAllowAllFields = player => {
 
 	// create position header
 
-	var thPosition = $('<th></th>').append(document.createTextNode('position'));
+	var thPosition = $('<th></th>').append(document.createTextNode('Position'));
 
 	// create height header
-	var thHeight = $('<th></th>').append(document.createTextNode('height'));
+	var thHeight = $('<th></th>').append(document.createTextNode('Height'));
 	
 	// create jerseyNum header
-	var thJerseyNum = $('<th></th>').append(document.createTextNode('number'));
+	var thJerseyNum = $('<th></th>').append(document.createTextNode('Number'));
 
 	// create DOB header
  	
@@ -141,6 +141,7 @@ const makeTableOfSinglePlayerAllowAllFields = player => {
 	// create table body
 	let tbody = $('<tbody></tbody>');
 	let trBody = $('<tr></tr>');
+	trBody.attr('align', 'center');
 
 
 	// append data for each table cell
