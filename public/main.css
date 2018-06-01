@@ -1,7 +1,17 @@
 * {
 	box-sizing: border-box;
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
+button {
+	display: block;
+	text-align: center;
+	line-height: 1em;
+	padding: 5px 10px;
+	font-size: 1em;
+	width: 100%;
+}
 
 table {
 	border-collapse: collapse;
@@ -15,26 +25,35 @@ th {
 
 th {
 	font-weight: 500;
-	border-bottom: 1px solid
-} 
-
+	border-bottom: 1px solid;
+}
 
 caption {
 	font-weight: bold;
 	margin: 0.3em 0;
 }
 
+.top-header {
+	padding: 0;
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.col-1-3 {
+	display: inline-block;
+	width: 28%;
+	text-align: center;
+}
+
 .data-container {
-	margin-top: 0;
+	max-width: 500px;
+	margin: 0 auto;
 	font-size: 1.1em;
 }
 
 .data-container table {
 	margin: 3em auto;
-}
-
-.data-container table:first-child {
-	margin: 0 auto;
 }
 
 .data-container tbody {
