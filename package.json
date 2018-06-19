@@ -1,7 +1,8 @@
 {
   "name": "nba-data-tables",
   "version": "1.0.0",
-  "description": "This small app is going to query to http://data.nba.net/ API and make some tables of data in order to practice creation and styling of tables.",
+  "description":
+    "This small app is going to query to http://data.nba.net/ API and make some tables of data in order to practice creation and styling of tables.",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
