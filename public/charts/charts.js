@@ -1,10 +1,3 @@
-// document.querySelector(`input[type='submit']`).addEventListener(`click`, e => {
-// 	e.preventDefault();
-// 	let player1 = document.querySelector(`form input:nth-of-type(1)`).value;
-// 	let player2 = document.querySelector(`form input:nth-of-type(2)`);
-// 	console.log(player1);
-// });
-
 document.querySelector(`.player-selection`).addEventListener(`click`, e => {
 	e.preventDefault();
 	let player1 = document.querySelector(`select:nth-of-type(1) option`).value;
