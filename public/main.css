@@ -63,3 +63,8 @@ caption {
 .data-container tr td:hover {
 	background-color: lightgreen;
 }
+
+.text {
+	fill: white;
+	font-family: sans-serif;
+}

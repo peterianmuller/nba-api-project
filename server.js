@@ -51,7 +51,7 @@ app.get('/stats', (req, res) => {
 
 //but this isn't if I want to use the native stats.nba API endpoint.
 app.get('/stats-test', (req, res) => {
-	console.log('right route');
+	console.log('right route here');
 	axios
 		.get('http://stats.nba.com/stats/scoreboard/?GameDate=02/14/2015&LeagueID=00&DayOffset=0')
 		.catch(function(error) {
@@ -64,7 +64,7 @@ app.get('/stats-test', (req, res) => {
 });
 
 app.get('/nba', (req, res) => {
-	console.log('right route');
+	console.log('right route here?');
 	axios
 		.get('http://data.nba.net/data/10s/prod/v1/2017/players.json')
 		.catch(function(error) {

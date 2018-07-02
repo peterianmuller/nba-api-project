@@ -1,4 +1,5 @@
 const makeTableOfSinglePlayerAllowAllFields = player => {
+	console.log(player);
 	let table = $('<table></table>');
 
 	// create caption
