@@ -68,3 +68,7 @@ caption {
 	fill: white;
 	font-family: sans-serif;
 }
+
+a {
+	text-decoration: none;
+}

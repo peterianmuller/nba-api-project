@@ -14,6 +14,6 @@ $('.player-metadata-controls button:first-of-type').click(e => {
 	});
 });
 
-$('section button:nth-of-type(2)').click(e => {
+$('section:first-of-type button:nth-of-type(2)').click(e => {
 	$('.data-container').html('');
 });
