@@ -6,31 +6,32 @@
 </head>
 <body>
 
+<section class="col-1-3">
 	<nav>
-		<a href="../index.html">Home</a>
+		<a href="../index.html"><button>Home</button></a>
 	</nav>
+	<p></p>Comparison of two player game stats from the 2017-2018 season.
+	<h2>Players!</h2>
+	<select>
+	  <option value="Stephen Curry">Stephen Curry</option>
+	</select>
 
+	<select>
+	  <option value="Lebron James">Lebron James</option>
+	</select>
 
-<h2>Players!</h2>
-<select>
-  <option value="Stephen Curry">Stephen Curry</option>
-</select>
+	<h2>Stat</h2>
+	<select>
+	  <option value="pts">points per game</option>
+	  <option value="reb">rebounds per game</option>
+	</select>
 
-<select>
-  <option value="Lebron James">Lebron James</option>
-</select>
+	<div class="player-chart"></div>
 
-<h2>Stat</h2>
-<select>
-  <option value="pts">points per game</option>
-  <option value="reb">rebounds per game</option>
-</select>
+	<svg class="chart"></svg>
 
-<div class="player-chart"></div>
-
-<svg class="chart"></svg>
-
-<button class="player-selection">Check out the Data!</button>
+	<button class="player-selection">Check out the Data!</button>
+</section>
 
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
