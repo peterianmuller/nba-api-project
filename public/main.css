@@ -76,3 +76,29 @@ a {
 .player-selection {
 	margin-top: 16px;
 }
+
+.top-header {
+	position: relative;
+	max-width: 960px;
+}
+
+.top-header > section {
+	position: absolute;
+}
+
+.player-metadata-controls {
+	left: 51%;
+}
+
+.player-comparison-header {
+	right: 51%;
+}
+
+.data-container {
+	position: absolute;
+	top: 100px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
