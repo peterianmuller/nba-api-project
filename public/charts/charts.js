@@ -31,7 +31,8 @@ const createChart = (stat, player1, player2, response) => {
 		memo = memo.concat([
 			{
 				stat: curr.playerHeadlineStats[0][stat],
-				name: curr.commonPlayerInfo[0].displayFirstLast
+				name: curr.commonPlayerInfo[0].displayFirstLast,
+				statType: stat
 			}
 		]);
 		return memo;
@@ -46,7 +47,6 @@ const createChart = (stat, player1, player2, response) => {
 		.attr('height', '300px')
 		.attr('width', '25%');
 
-	// Select, append to SVG, and add attributes to rectangles for bar chart
 	svg
 		.selectAll('rect')
 		.data(data)
