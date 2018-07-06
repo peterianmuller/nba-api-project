@@ -44,7 +44,7 @@ const createChart = (stat, player1, player2, response) => {
 		.select('body')
 		.append('svg')
 		.attr('height', '300px')
-		.attr('width', '100%');
+		.attr('width', '25%');
 
 	// Select, append to SVG, and add attributes to rectangles for bar chart
 	svg
@@ -61,7 +61,7 @@ const createChart = (stat, player1, player2, response) => {
 			return i * 90 + 25;
 		})
 		.attr('y', function(d, i) {
-			return 400 - d.stat * 10;
+			return 300 - d.stat * 10;
 		});
 
 	// Select, append to SVG, and add attributes to text
@@ -78,6 +78,6 @@ const createChart = (stat, player1, player2, response) => {
 			return i * 90 + 28;
 		})
 		.attr('y', function(d, i) {
-			return 415 - d.stat * 10;
+			return 320 - d.stat * 10;
 		});
 };
