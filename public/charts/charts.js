@@ -25,6 +25,10 @@ document.querySelector(`.player-selection`).addEventListener(`click`, e => {
 });
 
 const createChart = (stat, player1, player2, response) => {
+	expandStat = stat => {
+		return stat === 'pts' ? 'points per game' : 'rebounds per game';
+	};
+
 	console.log(`stat: ${stat}`);
 	let data = response.reduce((memo, curr) => {
 		console.log(curr.playerHeadlineStats[0][stat]);
@@ -32,7 +36,7 @@ const createChart = (stat, player1, player2, response) => {
 			{
 				stat: curr.playerHeadlineStats[0][stat],
 				name: curr.commonPlayerInfo[0].displayFirstLast,
-				statType: stat
+				statType: expandStat(stat)
 			}
 		]);
 		return memo;
@@ -40,12 +44,14 @@ const createChart = (stat, player1, player2, response) => {
 
 	console.log(data);
 
-	// Create variable for the SVG
 	var svg = d3
 		.select('body')
 		.append('svg')
 		.attr('height', '300px')
-		.attr('width', '25%');
+		.attr('width', '25%')
+		.style('border', '1px solid')
+		.style('border-radius', '5px')
+		.style('margin', '5px');
 
 	svg
 		.selectAll('rect')
@@ -56,7 +62,7 @@ const createChart = (stat, player1, player2, response) => {
 		.attr('height', function(d, i) {
 			return d.stat * 10;
 		})
-		.attr('width', '70')
+		.attr('width', '65')
 		.attr('x', function(d, i) {
 			return i * 90 + 25;
 		})
@@ -71,7 +77,7 @@ const createChart = (stat, player1, player2, response) => {
 		.enter()
 		.append('text')
 		.text(function(d) {
-			return `${d.name.split(' ')[0][0]} ${d.name.split(' ')[1][0]}: ${d.stat}`;
+			return `${d.name.split(' ')[0][0]}${d.name.split(' ')[1][0]}: ${d.stat}`;
 		})
 		.attr('class', 'text')
 		.attr('x', function(d, i) {
@@ -79,5 +85,18 @@ const createChart = (stat, player1, player2, response) => {
 		})
 		.attr('y', function(d, i) {
 			return 320 - d.stat * 10;
+		});
+
+	var myText = svg
+		.data(data)
+		.append('text')
+		.attr('y', 250)
+		.attr('x', function(d, i) {
+			return 250;
+		})
+		.attr('text-anchor', 'middle')
+		.attr('class', 'chart-label') //easy to style with CSS
+		.text(function(d) {
+			return `${d.statType}`;
 		});
 };
