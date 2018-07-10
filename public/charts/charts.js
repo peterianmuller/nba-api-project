@@ -1,9 +1,8 @@
 document.querySelector(`.player-selection`).addEventListener(`click`, e => {
 	e.preventDefault();
-	let player1 = document.querySelector(`select:nth-of-type(1) option`).value;
-	let player2 = document.querySelector(`select:nth-of-type(2) option`).value;
+	let player1 = document.querySelector(`select.list-1`).value;
+	let player2 = document.querySelector(`select.list-2`).value;
 	let stat = document.querySelector(`select:nth-of-type(3)`).value;
-	console.log($, player1, player2);
 	$.ajax({
 		method: `GET`,
 		url: `/player-comparison`,
@@ -13,7 +12,7 @@ document.querySelector(`.player-selection`).addEventListener(`click`, e => {
 			stat: stat
 		},
 		success: res => {
-			console.log(res);
+			console.log('res from api is:', res);
 			createChart(
 				res[0],
 				res[1].playerHeadlineStats[0].playerName,
@@ -31,7 +30,6 @@ const createChart = (stat, player1, player2, response) => {
 
 	console.log(`stat: ${stat}`);
 	let data = response.reduce((memo, curr) => {
-		console.log(curr.playerHeadlineStats[0][stat]);
 		memo = memo.concat([
 			{
 				stat: curr.playerHeadlineStats[0][stat],
@@ -48,10 +46,9 @@ const createChart = (stat, player1, player2, response) => {
 		.select('body')
 		.append('svg')
 		.attr('height', '300px')
-		.attr('width', '25%')
+		.attr('class', 'col-1-3')
 		.style('border', '1px solid')
-		.style('border-radius', '5px')
-		.style('margin', '5px');
+		.style('border-radius', '5px');
 
 	svg
 		.selectAll('rect')
