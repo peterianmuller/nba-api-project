@@ -48,7 +48,10 @@ const createChart = (stat, player1, player2, response) => {
 		.attr('height', '300px')
 		.attr('class', 'col-1-3')
 		.style('border', '1px solid')
-		.style('border-radius', '5px');
+		.style('border-radius', '5px')
+		.on('click', function() {
+			d3.select('svg').remove();
+		});
 
 	svg
 		.selectAll('rect')
