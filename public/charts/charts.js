@@ -48,10 +48,10 @@ const createChart = (stat, player1, player2, response) => {
 		.attr('height', '300px')
 		.attr('class', 'col-1-3')
 		.style('border', '1px solid')
-		.style('border-radius', '5px')
-		.on('click', function(e, i) {
-			d3.select(this).remove();
-		});
+		.style('border-radius', '5px');
+	// .on('click', function(e, i) {
+	// 	d3.select(this).remove();
+	// });
 
 	svg
 		.selectAll('rect')
@@ -70,7 +70,6 @@ const createChart = (stat, player1, player2, response) => {
 			return 300 - d.stat * 10;
 		});
 
-	// Select, append to SVG, and add attributes to text
 	svg
 		.selectAll('text')
 		.data(data)
@@ -98,5 +97,22 @@ const createChart = (stat, player1, player2, response) => {
 		.attr('class', 'chart-label') //easy to style with CSS
 		.text(function(d) {
 			return `${d.statType}`;
+		});
+
+	svg
+		.append('svg')
+		.append('text')
+		.text(function() {
+			return `close`;
+		})
+		.attr('x', function(d, i) {
+			return 270;
+		})
+		.attr('y', function(d, i) {
+			return 40;
+		})
+		.on('click', function(e, i) {
+			console.log(this);
+			d3.select(this.parentNode.parentNode).remove();
 		});
 };
