@@ -49,9 +49,6 @@ const createChart = (stat, player1, player2, response) => {
 		.attr('class', 'col-1-3')
 		.style('border', '1px solid')
 		.style('border-radius', '5px');
-	// .on('click', function(e, i) {
-	// 	d3.select(this).remove();
-	// });
 
 	svg
 		.selectAll('rect')
@@ -67,7 +64,7 @@ const createChart = (stat, player1, player2, response) => {
 			return i * 90 + 25;
 		})
 		.attr('y', function(d, i) {
-			return 300 - d.stat * 10;
+			return 300 - d.stat * 8;
 		});
 
 	svg
@@ -83,15 +80,15 @@ const createChart = (stat, player1, player2, response) => {
 			return i * 90 + 28;
 		})
 		.attr('y', function(d, i) {
-			return 320 - d.stat * 10;
+			return 320 - d.stat * 8;
 		});
 
 	var myText = svg
 		.data(data)
 		.append('text')
-		.attr('y', 250)
+		.attr('y', 25)
 		.attr('x', function(d, i) {
-			return 250;
+			return 150;
 		})
 		.attr('text-anchor', 'middle')
 		.attr('class', 'chart-label') //easy to style with CSS
@@ -109,7 +106,7 @@ const createChart = (stat, player1, player2, response) => {
 			return 270;
 		})
 		.attr('y', function(d, i) {
-			return 40;
+			return 25;
 		})
 		.on('click', function(e, i) {
 			console.log(this);
