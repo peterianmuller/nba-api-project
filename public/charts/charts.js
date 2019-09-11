@@ -61,7 +61,7 @@ const createChart = (stat, player1, player2, response) => {
 		})
 		.attr('width', '65')
 		.attr('x', function(d, i) {
-			return i * 90 + 25;
+			return i * 90 + 30;
 		})
 		.attr('y', function(d, i) {
 			return 300 - d.stat * 8;

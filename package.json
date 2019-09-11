@@ -1,8 +1,7 @@
 {
   "name": "nba-data-tables",
   "version": "1.0.0",
-  "description":
-    "This small app is going to query to http://data.nba.net/ API and make some tables of data in order to practice creation and styling of tables.",
+  "description": "This small app is going to query to http://data.nba.net/ API and make some tables of data in order to practice creation and styling of tables.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -15,6 +14,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
-    "jsdom": "^11.11.0"
+    "jsdom": "^11.11.0",
+    "nba": "^4.9.0",
+    "nodemon": "^1.18.10"
   }
 }

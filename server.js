@@ -2,8 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var axios = require('axios');
-const nba = require('nba.js');
-const NBA = require('nba');
+const nba = require('nba');
 
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/public`));
@@ -77,15 +76,14 @@ app.get('/nba', (req, res) => {
 		});
 });
 
-// get players data to compare
 app.get('/player-comparison', (req, res) => {
 	let playersInfoAndStat = [req.query.stat];
-	let player1 = NBA.findPlayer(req.query.player1);
-	let player2 = NBA.findPlayer(req.query.player2);
+	let player1 = nba.findPlayer(req.query.player1);
+	let player2 = nba.findPlayer(req.query.player2);
 
-	NBA.stats.playerInfo({ PlayerID: player1.playerId }).then(response => {
+	nba.stats.playerInfo({ PlayerID: player1.playerId }).then(response => {
 		playersInfoAndStat.push(response);
-		NBA.stats.playerInfo({ PlayerID: player2.playerId }).then(response => {
+		nba.stats.playerInfo({ PlayerID: player2.playerId }).then(response => {
 			playersInfoAndStat.push(response);
 			res.send(playersInfoAndStat);
 		});
